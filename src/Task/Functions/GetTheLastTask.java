@@ -1,11 +1,11 @@
 package Task.Functions;
+import static Task.Functions.TextForConsole.notActiveTasksPrint;
+import static Task.Main.taskList;
 
-import Task.Main;
-
-public class GetTheLastTask extends Main {
+public class GetTheLastTask  {
 
     public static void getLastTask () {
-        if (!taskList.isEmpty()) {
+        if (!taskList.isEmpty()){
             System.out.println(taskList.get(taskList.size() - 1));
         }
         else {

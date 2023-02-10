@@ -1,7 +1,5 @@
 package Task;
-
 import Task.Functions.*;
-
 import java.io.IOException;
 import java.util.*;
 
@@ -27,36 +25,32 @@ public class Main {
         whileWorkingWithCommands();
 
     }
-    public static void notActiveTasksPrint() {
-        System.out.println("Активных задач нет.");
-    }
 
-    static void ReadObjects() throws IOException {
+    static void readObjects() throws IOException {
         WriteObjectInFile.ReadObjectFromFile(taskList);
     }
 
     public static CommandsEnter whileWorkingWithCommands() throws IOException, ClassNotFoundException {
 
-        ReadObjects();
+        readObjects();
 
         Scanner scanner = new Scanner(System.in);
 
-        TextForConsole.WelcomePrint();
+        TextForConsole.welcomePrint();
 
         while (true) {
 
-            TextForConsole.SelectCommands();
+            TextForConsole.selectCommands();
 
             int scan = scanner.nextInt();
 
             switch (scan) {
                 case 1 : {
-                    AddTasks.AddCommandsAndWritingTask();
+                    AddTasks.addCommandsAndWritingTask();
                     TextForConsole.headMenuCalling();
                     break;
                 }
-                case 2 :
-                {
+                case 2 : {
                     CommandsEnter.commandTwo();
                     TextForConsole.headMenuCalling();
                     break;
@@ -72,12 +66,17 @@ public class Main {
                     break;
                 }
                 case 5 : {
-                    ClassDeleteTask.deleteTask();
+                    ClassDeleteTask.deleteAllTask();
+                    TextForConsole.headMenuCalling();
+                    break;
+                }
+                case 6 : {
+                    ClassDeleteTask.deleteTaskByItsName();
                     TextForConsole.headMenuCalling();
                     break;
                 }
                 default :
-                    TextForConsole.NotCommandRepeatYouEnter();
+                    TextForConsole.notCommandRepeatYouEnter();
                     break;
             }
         }

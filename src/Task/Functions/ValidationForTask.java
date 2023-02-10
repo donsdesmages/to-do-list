@@ -1,8 +1,8 @@
 package Task.Functions;
+import static Task.Functions.TextForConsole.errorNameOrPriority;
+import static Task.Functions.TextForConsole.errorTime;
 
-import java.util.Scanner;
-
-public class ValidationForTask {
+class validationForTask  {
 
     public static boolean validation(String name, int priority, int day, int hour, int minute) {
         if (!name.isEmpty() && (priority >= 0 && priority <= 10)) {
@@ -10,18 +10,14 @@ public class ValidationForTask {
                 if (day == 0 && hour == 0 && minute == 0) {
                     return false;
                 }
-            } else {
+            }
+            else {
+                errorTime();
                 return true;
             }
             return false;
         }
+        errorNameOrPriority();
         return true;
-    }
-
-    public static void headMenuCallingValidation () {
-        Scanner scanner = new Scanner(System.in);
-        while (!(scanner.nextInt() == 0)) {
-            System.out.println("Нажмите '0'.,что-бы отобразить MENU");
-        }
     }
 }

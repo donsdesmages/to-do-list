@@ -1,9 +1,7 @@
 package Task.Functions;
-
-import Task.Functions.AddTasks;
 import Task.Main;
 
-public class CommandsEnter extends AddTasks {
+public class CommandsEnter  {
 
     public static void commandThree () {
             System.out.println("Кол-во задач на данный момент:" + " " + "[" + Main.taskList.size() + "]");
@@ -13,14 +11,14 @@ public class CommandsEnter extends AddTasks {
 
         try {
             if (Main.taskList.isEmpty()) {
-               Main.notActiveTasksPrint();
+               TextForConsole.notActiveTasksPrint();
             }
             else {
                 Main.taskList.forEach(System.out::println);
             }
         }
         catch (IndexOutOfBoundsException exception) {
-            System.out.println("Статус программы: Возможно произошла ошибка");
+            System.out.println("Статус программы: Произошла ошибка");
         }
     }
 }

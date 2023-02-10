@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Task implements Serializable {
 
-    public static Main Main;
+
     private static String name;
     private static Integer priority;
     private static LocalDateTime deadline;
